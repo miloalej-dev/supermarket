@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"github.com/miloalej-dev/supermarket/internal/handler"
 	"net/http"
 )
@@ -10,6 +11,8 @@ import (
 func main() {
 
 	router := chi.NewRouter()
+
+	router.Use(middleware.Logger)
 
 	router.Route("/products", func(r chi.Router) {
 		r.Get("/", handler.GetProducts)

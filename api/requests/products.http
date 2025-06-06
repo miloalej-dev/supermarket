@@ -1,0 +1,21 @@
+### GET request to products endpoint
+GET http://localhost:8080/products
+
+### GET request to product by ID endpoint
+GET http://localhost:8080/products/6
+
+### GET request to search products endpoint
+GET http://localhost:8080/products/search?priceGt=990
+
+### POST request to create a new product
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "name": "Ice tea - lemon, peach",
+  "quantity": 10,
+  "code_value": "NPI123",
+  "is_published": true,
+  "expiration": "30/06/2025",
+  "price": 1000
+}

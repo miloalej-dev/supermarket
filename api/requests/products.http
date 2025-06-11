@@ -1,15 +1,19 @@
 ### GET request to products endpoint
 GET http://localhost:8080/products
+Authorization: my-secret-token
 
 ### GET request to product by ID endpoint
 GET http://localhost:8080/products/6
+Authorization: my-secret-token
 
 ### GET request to search products endpoint
 GET http://localhost:8080/products/search?priceGt=990
+Authorization: my-secret-token
 
 ### POST request to create a new product
 POST http://localhost:8080/products
 Content-Type: application/json
+Authorization: my-secret-token
 
 {
   "name": "Ice tea - lemon, peach",
@@ -19,3 +23,32 @@ Content-Type: application/json
   "expiration": "30/06/2025",
   "price": 1000
 }
+
+### PUT request to update an existing product by ID
+PUT http://localhost:8080/products/501
+Content-Type: application/json
+Authorization: my-secret-token
+
+{
+  "name": "Ice tea - lemon, peach",
+  "quantity": 20,
+  "code_value": "NPI123",
+  "is_published": true,
+  "expiration": "30/06/2025",
+  "price": 1200
+}
+
+### PATCH request to partially update an existing product by ID
+PATCH http://localhost:8080/products/501
+Content-Type: application/json
+Authorization:
+
+{
+  "quantity": 25,
+  "price": 1400
+}
+
+### DELETE request to delete a product by ID
+DELETE http://localhost:8080/products/501
+Authorization: my-secret-token
+

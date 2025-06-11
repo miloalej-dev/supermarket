@@ -11,6 +11,7 @@ import (
 
 var fileRepoMutex sync.Mutex
 
+// FileRepository is a file-based implementation of the ProductRepository interface.
 type FileRepository struct {
 	path string
 }

@@ -9,6 +9,9 @@ import (
 
 var authToken = os.Getenv("AUTH_TOKEN")
 
+// AuthMiddleware is a middleware that checks for the presence of an authorization token in the request headers.
+// If the token is missing or invalid, it returns a 401 Unauthorized response.
+// If the token is valid, it allows the request to proceed to the next handler.
 func AuthMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Here you can add logic to validate the authToken, e.g., check against a database or a list of valid tokens.

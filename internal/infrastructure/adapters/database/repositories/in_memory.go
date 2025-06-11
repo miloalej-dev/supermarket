@@ -8,6 +8,7 @@ import (
 	"os"
 )
 
+// InMemoryRepository is an in-memory implementation of the ProductRepository interface.
 type InMemoryRepository struct {
 	products []domain.Product
 }
@@ -30,24 +31,16 @@ func NewInMemoryRepository() outbound.ProductRepository {
 	return m
 }
 
-// Save adds a new product to the in-memory repository.
-// It appends the product to the products slice and assigns an ID based on the current length of the slice.
-// It returns the saved product with its ID.
-// If there is an error during the process, it returns an error.
 func (i *InMemoryRepository) Save(product domain.Product) (domain.Product, error) {
 	product.Id = len(i.products) + 1
 	i.products = append(i.products, product)
 	return product, nil
 }
 
-// FindAll retrieves all products from the in-memory repository.
-// It returns a slice of Product objects.
 func (i *InMemoryRepository) FindAll() []domain.Product {
 	return i.products
 }
 
-// FindById retrieves a product by its ID from the in-memory repository.
-// It returns a pointer to the Product object if found, or nil if not found.
 func (i *InMemoryRepository) FindById(id int) *domain.Product {
 	for _, product := range i.products {
 		if product.Id == id {

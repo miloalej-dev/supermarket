@@ -41,7 +41,7 @@ Authorization: my-secret-token
 ### PATCH request to partially update an existing product by ID
 PATCH http://localhost:8080/products/501
 Content-Type: application/json
-Authorization:
+Authorization: my-secret-token
 
 {
   "quantity": 25,

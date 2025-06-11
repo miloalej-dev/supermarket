@@ -61,13 +61,13 @@ Example response:
 ```json
 [
   {
-    "id": "1",
+    "id": 1,
    "name": "Apple",
-    "quantity": "20",
+    "quantity": 20,
     "code_value": "AS210D",
     "is_published": true,
     "expiration": "20/10/2025",
-    "price": "12.65"
+    "price": 12.65
   }
 ]
 ```
